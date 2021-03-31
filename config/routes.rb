@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'products#index'
-
+  
+  # change this to best practice route
   get '/about', to: 'about#index'
 
   resources :products, only: [:index, :show]
