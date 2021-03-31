@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # change this to best practice route
   get '/about', to: 'about#index'
 
+  # brcrypt route below :)
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
