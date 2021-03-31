@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   root to: 'products#index'
-  
-  # change this to best practice route
-  get '/about', to: 'about#index'
 
   # bcrypt route below :)
   get '/login' => 'sessions#new'
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   # bcrypt routes end
 
+  resources :about, only: [:index]
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
