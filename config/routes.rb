@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   # change this to best practice route
   get '/about', to: 'about#index'
 
-  # brcrypt route below :)
+  # bcrypt route below :)
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  # bcrypt routes end
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
