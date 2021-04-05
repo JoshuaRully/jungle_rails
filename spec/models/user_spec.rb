@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
     context 'passwords match' do
       user = User.new(
         email: 'test@test.com',
-        password: '1234',
-        password_confirmation: '1234'
+        password: '12345',
+        password_confirmation: '12345'
       )
       user.valid?
       it 'matches' do
@@ -18,8 +18,8 @@ RSpec.describe User, type: :model do
     context 'passwords do not match' do
       user = User.new(
         email: 'test@test.com',
-        password: '1234',
-        password_confirmation: '4321'
+        password: '12345',
+        password_confirmation: '54321'
       )
       user.valid?
       it 'does not match' do
@@ -31,15 +31,15 @@ RSpec.describe User, type: :model do
       it 'is taken' do
         user1 = User.new(
           email: 'test@test.com',
-          password: '1234',
-          password_confirmation: '1234'
+          password: '12345',
+          password_confirmation: '12345'
         )
         user1.save
 
         user2 = User.new(
           email: 'test@test.com',
-          password: '1234',
-          password_confirmation: '1234'
+          password: '12345',
+          password_confirmation: '12345'
         )
         user2.save
 
@@ -49,8 +49,9 @@ RSpec.describe User, type: :model do
 
     context 'password length is valid' do
       it 'is less than five characters' do
+        # TODO: find issue w/ password length
         user = User.new(
-          email: 'test@test.com',
+          email: 'bob@test.com',
           password: '1234',
           password_confirmation: '1234'
         )
@@ -58,5 +59,7 @@ RSpec.describe User, type: :model do
         expect(result).to be(false)
       end
     end
+
+    
   end
 end
