@@ -26,5 +26,25 @@ RSpec.describe User, type: :model do
         expect(user.errors[:password_confirmation]).to be_present
       end
     end
-  end
+
+    context 'email is unique' do
+      it 'is taken' do
+        user1 = User.new(
+          email: 'test@test.com',
+          password: '1234',
+          password_confirmation: '1234'
+        )
+        user1.save
+
+        user2 = User.new(
+          email: 'test@test.com',
+          password: '1234',
+          password_confirmation: '1234'
+        )
+        user2.save
+
+        expect(user2.errors[:email].first).to eq('has already been taken')
+      end
+    end
+  end    
 end
