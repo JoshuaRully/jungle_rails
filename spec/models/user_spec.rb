@@ -46,5 +46,17 @@ RSpec.describe User, type: :model do
         expect(user2.errors[:email].first).to eq('has already been taken')
       end
     end
-  end    
+
+    context 'password length is valid' do
+      it 'is less than five characters' do
+        user = User.new(
+          email: 'test@test.com',
+          password: '1234',
+          password_confirmation: '1234'
+        )
+        result = user.save
+        expect(result).to be(false)
+      end
+    end
+  end
 end
