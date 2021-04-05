@@ -5,22 +5,16 @@ RSpec.describe Product, type: :model do
 
     before do
       @product = Product.new
-    end
-    
-    context 'product created' do
-      it 'is valid' do
-        @category = Category.new
-        @category.name = 'test cat'
-        @product.name = 'test prod'
-        @product.price_cents = 1000
-        @product.quantity = 10
-        @product.category = @category
-        expect(@product.valid?).to be true
-      end
+      @category = Category.new
+      @category.name = 'test category'
+      @product.name = 'test product'
+      @product.price_cents = 1000
+      @product.quantity = 10
+      @product.category = @category
     end
 
     context 'requires name' do
-      it 'will have name present' do
+      it 'has name' do
         @product.name = nil
         @product.valid?
         expect(@product.errors[:name]).to  include("can't be blank")
@@ -32,7 +26,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'requires price' do
-      it ' will have price_cents present' do
+      it 'has price_cents' do
         @product.price_cents = nil
         @product.valid?
         expect(@product.errors[:price_cents]).to  include('is not a number')
@@ -44,7 +38,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'requires quantity' do
-      it 'will have quantity present' do
+      it 'has quantity' do
         @product.quantity = nil
         @product.valid?
         expect(@product.errors[:quantity]).to include("can't be blank")
@@ -52,6 +46,18 @@ RSpec.describe Product, type: :model do
         @product.quantity = 10
         @product.valid?
         expect(@product.errors[:quantity]).not_to include("can't be blank")
+      end
+    end
+
+    context 'requires category' do
+      it 'has category' do
+        @product.category = nil
+        @product.valid?
+        expect(@product.errors[:category]).to include("can't be blank")
+
+        @product.category = @category
+        @product.valid? 
+        expect(@product.errors[:category]).not_to  include("can't be blank")
       end
     end
 
