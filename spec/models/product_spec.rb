@@ -20,7 +20,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'requires name' do
-      it "name present" do
+      it 'will have name present' do
         @product.name = nil
         @product.valid?
         expect(@product.errors[:name]).to  include("can't be blank")
@@ -32,7 +32,7 @@ RSpec.describe Product, type: :model do
     end
 
     context 'requires price' do
-      it "price_cents presence" do
+      it ' will have price_cents present' do
         @product.price_cents = nil
         @product.valid?
         expect(@product.errors[:price_cents]).to  include('is not a number')
@@ -42,5 +42,18 @@ RSpec.describe Product, type: :model do
         expect(@product.errors[:price_cents]).not_to  include("can't be blank")
       end
     end
+
+    context 'requires quantity' do
+      it 'will have quantity present' do
+        @product.quantity = nil
+        @product.valid?
+        expect(@product.errors[:quantity]).to include("can't be blank")
+
+        @product.quantity = 10
+        @product.valid?
+        expect(@product.errors[:quantity]).not_to include("can't be blank")
+      end
+    end
+
   end
 end
