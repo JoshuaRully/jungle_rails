@@ -15,7 +15,7 @@ RSpec.feature "Visitor adds item to cart", type: :feature, js: true do
     )
   end
 
-  scenario "They see all products" do
+  scenario "They see 1 item in cart" do
     # ACT
     visit root_path
 
@@ -27,6 +27,6 @@ RSpec.feature "Visitor adds item to cart", type: :feature, js: true do
     expect(page).to have_content('My Cart (1)')
 
     # DEBUG
-    save_screenshot
+    # save_screenshot
   end
 end
