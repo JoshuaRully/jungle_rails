@@ -1,7 +1,7 @@
 
 require 'rails_helper'
 
-RSpec.feature "Visitor clicks product partial and brought to product page", type: :feature, js: true do
+RSpec.feature "Visitor navigates to product details", type: :feature, js: true do
 
   # SETUP
   before :each do
