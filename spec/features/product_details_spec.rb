@@ -27,44 +27,4 @@ RSpec.feature "Visitor navigates to product details", type: :feature, js: true d
     # DEBUG
     # save_screenshot
   end
-
-  scenario "They see product description" do
-    # ACT
-    visit root_path
-
-    # VERIFY
-    find('a.btn-default').click
-
-    expect(page).to have_content('Description')
-    
-    # DEBUG
-    # save_screenshot
-  end
-
-  scenario "They see product quantity" do
-    # ACT
-    visit root_path
-
-    # VERIFY
-    find('a.btn-default').click
-
-    expect(page).to have_content('Quantity')
-    
-    # DEBUG
-    # save_screenshot
-  end
-
-  scenario "They see product price" do
-    # ACT
-    visit root_path
-
-    # VERIFY
-    find('a.btn-default').click
-
-    expect(page).to have_content('Price')
-    
-    # DEBUG
-    # save_screenshot
-  end
-
 end
