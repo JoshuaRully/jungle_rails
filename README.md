@@ -31,4 +31,4 @@ Signup, add items, remove items and purchase items!
 !["General User"](https://github.com/JoshuaRully/jungle_rails/blob/master/gifs/signup_add_delete_add_checkout_logout.gif?raw=true)
 
 Add a new category and product as an admin user!
-!["General User"](https://github.com/JoshuaRully/jungle_rails/blob/master/gifs/signup_add_delete_add_checkout_logout.gif?raw=true)
+!["General User"](https://github.com/JoshuaRully/jungle_rails/blob/master/gifs/admin_add_category_add_item.gif?raw=true)
